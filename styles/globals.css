@@ -1,0 +1,224 @@
+:root{
+  --text: #1f2937;
+
+  --card-blue: #e8f1ff;
+  --card-border: #cfe2ff;
+
+  --btn-blue: #3b82f6;
+  --btn-blue-hover: #2563eb;
+
+  --radius: 18px;
+}
+
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: url("/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+
+
+body{
+  font-family: "Patrick Hand", cursive;
+  line-height: 1.6;
+  font-size: 1.05rem;
+}
+
+/* Headings */
+h1,h2,h3,h4{
+  font-family: "Caveat", cursive;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+button, input{ font: inherit; }
+
+.container{
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 22px 0 44px;
+  position: relative;
+  z-index: 1;
+  background: transparent;   /* important */
+}
+
+
+/* ✅ Glassmorphism Card */
+.card{
+  background: var(--card-blue);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: 0 15px 35px rgba(59,130,246,0.15);
+}
+
+
+
+/* ✅ Use this for cards INSIDE the modal sections (more readable) */
+.card.solid{
+  background: rgba(255,255,255,0.72);
+  border: 1px solid rgba(255,255,255,0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+
+/* Buttons */
+.btn{
+  border: none;
+  cursor: pointer;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--btn-blue);
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(59,130,246,0.35);
+  transition: all 180ms ease;
+}
+
+.btn:hover{
+  background: var(--btn-blue-hover);
+  transform: translateY(-2px);
+}
+
+.btn.secondary{
+  background: #dbeafe;
+  color: #1e3a8a;
+  border: 1px solid #bfdbfe;
+  box-shadow: none;
+}
+
+
+/* Text helpers */
+.muted{
+  opacity: 0.85;
+  font-style: italic;
+  text-align: center;
+}
+.small{ font-size: 0.92rem; }
+
+/* Grid */
+.grid{
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 720px){
+  .grid.cols3{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 719px){
+  .grid.cols3{ grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ✅ Glass PIN input */
+.pinInput{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  text-align: center;
+  color: var(--text);
+}
+
+.pinInput::placeholder{
+  color: rgba(0,0,0,0.45);
+}
+
+/* Modal */
+.overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 14px;
+  z-index: 999;
+}
+
+/* Premium modal container: NO scrolling here */
+.modal{
+  width: min(920px, 100%);
+  max-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;             /* important */
+  border-radius: 22px;
+  background: rgba(255,255,255,0.96); 
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+}
+
+/* Sticky header inside modal */
+.modalHeader{
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 18px 18px 12px;
+  background: rgba(255,255,255,0.96);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Scroll happens only in the body */
+.modalBody{
+  padding: 16px 18px 18px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optional: nicer scrollbars */
+.modalBody::-webkit-scrollbar{ width: 8px; }
+.modalBody::-webkit-scrollbar-thumb{
+  background: rgba(59,130,246,0.35);
+  border-radius: 999px;
+}
+.modalBody::-webkit-scrollbar-track{ background: transparent; }
+
+@media (min-width: 720px){
+  .overlay{ place-items: center; }
+  .modal{ border-radius: 22px; padding: 22px; }
+}
+
+/* Optional: keep parchment style (non-glass) */
+.parchment{
+  background: linear-gradient(180deg, #fff8ea, #fff2d6);
+  border: 1px solid rgba(0,0,0,0.07);
+}
+
+/* Pills (glass) */
+.pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.45);
+  background: rgba(255,255,255,0.30);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.card::-webkit-scrollbar-thumb {
+  background: rgba(59,130,246,0.4);
+  border-radius: 10px;
+}
+
+.card::-webkit-scrollbar-track {
+  background: transparent;
+}
