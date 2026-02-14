@@ -18,7 +18,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)", textAlign: "center" }}
           >
-            Happy valentines, wifey :3
+            Happy Valentine's Day, wifey :3
           </motion.h1>
           <p className="muted" style={{ marginTop: 8, textAlign: "center" }}>
             try to guess the password, babe. :p
